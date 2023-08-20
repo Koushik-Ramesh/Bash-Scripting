@@ -5,3 +5,4 @@ echo Welcome to Bash-Scripting
 # $ bash scriptname.shor sh scriptname.sh or ./scriptname.sh
 echo line 1
 echo line 2
+echo line 3
