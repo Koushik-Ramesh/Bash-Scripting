@@ -8,3 +8,5 @@ This Repository contains all the basics needed to learn Bash-Scripting and the m
     $ git add .                     //This will let git know to start tracking all the files
     $ git push                      //This will push the code to the repository on github
 ``` 
+### How to open folder in VSCode
+    $ code foldername
