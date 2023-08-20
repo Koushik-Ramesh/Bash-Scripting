@@ -3,3 +3,6 @@
 echo Welcome to Bash-Scripting
 # This is how we can execute the scripts
 # $ bash scriptname.shor sh scriptname.sh or ./scriptname.sh
+echo line 1
+
+echo line 2
