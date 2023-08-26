@@ -23,3 +23,12 @@ Stats
 echo Stats info is above
 
 Stats
+
+# Now lets call one function from another function
+
+System(){
+    echo You have used sytem for a long time
+    echo Time to take a break
+
+    Stats   # Calling the function 
+}
