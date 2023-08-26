@@ -13,13 +13,13 @@
 #    echo hi
 #}
 
-example(){
-    echo Going great 
-    echo Keep it up
+Stats(){
+    echo Sessions running are $(who | wc -l) 
+    echo Date is $(date +%F)
 }
 
-example
+Stats
 
-echo example call is completed
+echo Stats info is above
 
-example
+Stats
