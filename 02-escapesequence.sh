@@ -20,6 +20,6 @@ echo -e "line1\nline2"
 # Whenever we use special characters, always enclose them with the double quotes - ""
 
 echo -e "Koushik\tRamesh\tAmazon"
-echo -e "Learn\tDevOps\tas\tsoon\tas\tpossibe\nand\tstart\timplementing"
+echo -e "Learn\tDevOps\tas\tsoon\tas\tpossibe\n\tand\tstart\timplementing"
 
 
