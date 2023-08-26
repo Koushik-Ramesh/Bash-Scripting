@@ -16,6 +16,7 @@
 Stats(){
     echo "Sessions running are $(who | wc -l)" 
     echo "Date is $(date +%F)"
+    echo "Average usage of system in last 5 mins is $(uptime | awk -F : '{print $NF}' | awk -F, '{print $2}')"
 }
 
 # Now lets call one function from another function
@@ -28,3 +29,7 @@ System(){
 }
 
 System
+
+# uptime | awk -F :{print $1 or $2 - NF will print final argument} | awk -F, {print $2}
+# -F = Field Separator (, for the field or : for the last field)
+
