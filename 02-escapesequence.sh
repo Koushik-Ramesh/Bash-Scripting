@@ -19,5 +19,5 @@ echo line 4
 echo -e "line1\nline2"
 # Whenever we use special characters, always enclose them with the double quotes - ""
 
-echo -e "Koushik\tRamesh"
+echo -e "Koushik\tRamesh\tAmazon"
 
