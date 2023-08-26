@@ -24,7 +24,9 @@ echo $$     # $$ will print the Process-ID of the current process
 echo $#     # $# will print the number of arguments used
 echo $?     # $? will print the exit code of the last command
 
-echo "Variables used $*" # $* will print the used variable
-echo $@
+echo "Variables used $*"    # $* will print the used variable
+echo $@                     # $@ same as above
+
+
 
 
