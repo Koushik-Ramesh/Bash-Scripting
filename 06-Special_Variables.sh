@@ -20,5 +20,6 @@ echo "Value of a is $a"
 echo "value of b is $b"
 echo "Value of c is $c"
 
+echo $$     # $$ will print the PID of the current process
 echo "Variables used $*" # $* will print the used variable
 
