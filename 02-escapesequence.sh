@@ -9,6 +9,7 @@ echo Welcome to Bash-Scripting
 # Koushik\nDevops
 # Koushik
 # Devops
+# \t : This give tab space
 
 echo line 1
 echo line 2
@@ -16,3 +17,7 @@ echo line 3
 echo line 4
 
 echo -e "line1\nline2"
+# Whenever we use special characters, always enclose them with the double quotes - ""
+
+echo -e "Koushik\tRamesh"
+
