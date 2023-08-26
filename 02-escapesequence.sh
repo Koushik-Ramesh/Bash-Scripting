@@ -15,4 +15,4 @@ echo line 2
 echo line 3
 echo line 4
 
-echo -e line1\nline2
+echo -e "line1\nline2"
