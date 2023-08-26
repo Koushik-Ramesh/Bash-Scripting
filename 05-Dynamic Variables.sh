@@ -7,5 +7,5 @@ DATE="$(date +%F)"
 
 Sessions_Count="$(who | wc -l)"
 
-echo "Today's Date is $DATE "
-echo "Number of sessions running: $Sessions_Count"
+echo -e "Today's Date is \e[33m $DATE \e[0m"
+echo -e "Number of sessions running: \e[33m $Sessions_Count \e[0m"
