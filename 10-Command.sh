@@ -14,8 +14,8 @@
 #}
 
 Stats(){
-    echo Sessions running are $(who | wc -l) 
-    echo Date is $(date +%F)
+    echo "Sessions running are $(who | wc -l)" 
+    echo "Date is $(date +%F)"
 }
 
 Stats
