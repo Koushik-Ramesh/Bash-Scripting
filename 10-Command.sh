@@ -18,12 +18,6 @@ Stats(){
     echo "Date is $(date +%F)"
 }
 
-Stats
-
-echo Stats info is above
-
-Stats
-
 # Now lets call one function from another function
 
 System(){
