@@ -10,4 +10,15 @@ echo "State which you are currently residing in $2"
 
 # bash scriptname.sh arg1 arg2 arg3
 # arg 1,2,3 will be the argument that will be comsidered during the script executing
+# Pedling: Once arg 9 ends and if arg10 is considered then the arg10 will take the value of arg1
+
+a=10
+b=55
+c=89
+
+echo "Value of a is $a"
+echo "value of b is $b"
+echo "Value of c is $c"
+
+echo $* # $* will print the used variable
 
