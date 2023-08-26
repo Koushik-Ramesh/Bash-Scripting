@@ -13,5 +13,5 @@ b=hii
 # How to print the values of the variable ? - Using special charactes, we will be printing the values of the variable
 # echo $a
 
-echo "Printing the value of $a"     # $a and ${a} both are same - Prefer using flower brackets
-echo "Print ${a}"
+echo "Printing the value of a : $a"     # $a and ${a} both are same - Prefer using flower brackets
+echo "Print a : ${a}"
