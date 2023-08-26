@@ -12,3 +12,14 @@
 #{
 #    echo hi
 #}
+
+example(){
+    echo Going great 
+    echo Keep it up
+}
+
+example
+
+echo example call is completed
+
+example
