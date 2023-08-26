@@ -16,7 +16,7 @@ b=hii
 echo "Printing the value of a : $a"     # $a and ${a} both are same - Prefer using flower brackets
 echo "Print a : ${a}"
 
-Date="Aug 26th"
+Date="Aug 26th"         #This is hardcoding, as date changes daily, this is not a good practice
 echo "TODAY'S DATE IS $Date"
 # Data_Dir=Robot
 # rm -rf  /data/${Data_Dir}/    #rm -rf /data/      # rm -rf /data/robot/
