@@ -14,4 +14,4 @@ b=hii
 # echo $a
 
 echo "Printing the value of $a"     # $a and ${a} both are same - Prefer using flower brackets
-echo "Print ${a}
+echo "Print ${a}"
