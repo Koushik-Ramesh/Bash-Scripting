@@ -8,11 +8,11 @@ if [ "$Value" == "Start" ];then
     echo -e "\e [32m Starting the machine \e[0m"
     exit 0
 
-else if [ "$Value == "Stop" ];then
+elif [ "$Value == "Stop" ];then
     echo -e "\e [90m Stopping the machine \e[0m"
     exit 1
 
-else if [ "$Value == "Restart" ];then
+elif [ "$Value == "Restart" ];then
     echo -e "\e [36m Restarting the machine \e[0m"
     exit 2
 
