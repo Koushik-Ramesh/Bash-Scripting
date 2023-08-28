@@ -9,6 +9,7 @@
 # esac
 
 Action=$1
+
 case $Action in
     start)
         echo "Starting the service"
@@ -20,7 +21,7 @@ case $Action in
         echo "Restarting the service"
         ;;
     *)
-        echo "Valid options are start, stop or restart
+        echo "Valid options are start, stop or restart"
         ;;
 esac
 
