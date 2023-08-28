@@ -5,15 +5,15 @@ echo "Just an Example"
 Value=$1
 
 if [ "$Value" == "Start" ];then
-    echo -e "\e [32m Starting the machine \e[0m"
+    echo -e "\e[32m Starting the machine \e[0m"
     exit 0
 
 elif [ "$Value == "Stop" ];then
-    echo -e "\e [90m Stopping the machine \e[0m"
+    echo -e "\e[90m Stopping the machine \e[0m"
     exit 1
 
 elif [ "$Value == "Restart" ];then
-    echo -e "\e [36m Restarting the machine \e[0m"
+    echo -e "\e[36m Restarting the machine \e[0m"
     exit 2
 
 else 
