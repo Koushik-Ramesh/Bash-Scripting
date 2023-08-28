@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo "Just an Example"
+
+Value=$1
+
+if [ "$Value" == "Start" ];then
+    echo -e "\e [32m Starting the machine \e[0m"
+    exit 0
+
+else if [ "$Value == "Stop" ];then
+    echo -e "\e [90m Stopping the machine \e[0m"
+    exit 1
+
+else if [ "$Value == "Restart" ];then
+    echo -e "\e [36m Restarting the machine \e[0m"
+    exit 2
+
+else 
+    echo -e "\e[31m Valid options are Start, Stop or Restart \e[0m"
+        echo -e "\e[31m Example: bash Scriptname Restart \e[0m"
+        exit 3
+fi
