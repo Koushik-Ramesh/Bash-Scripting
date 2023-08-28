@@ -12,16 +12,17 @@ Action=$1
 
 case $Action in
     start)
-        echo "Starting the service"
+        echo "\e[32m Starting the service \e[0m"
         ;;
     stop)
-        echo "Stopping the service"
+        echo "\e[90m Stopping the service \e[0m"
         ;;
     restart)
-        echo "Restarting the service"
+        echo "\e[36m Restarting the service \e[0m"
         ;;
     *)
-        echo "Valid options are start, stop or restart"
+        echo "\e[31m Valid options are start, stop or restart \e[0m"
+        echo "\e[31m Example: bash Scriptname restart \e[0m"
         ;;
 esac
 
