@@ -42,9 +42,6 @@ Status $?
 
 echo -n "Extracting ${Component}:"
 unzip /tmp/frontend.zip     &>>  ${Logfile}
-Status $?
-
-echo -n "Sorting the ${Component} files:"
 mv ${Component}-main/* .
 mv static/* .
 rm -rf ${Component}-main README.md
