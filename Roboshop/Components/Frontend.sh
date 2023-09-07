@@ -30,7 +30,7 @@ if [ $? -eq 0 ] ; then
     echo -e "\e[31m Failure \e[0m"
 fi
 
-echo "Downloading the Frontend Component:"
+echo -n "Downloading the Frontend Component:"
 curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"
 
 if [ $? -eq 0 ] ; then
