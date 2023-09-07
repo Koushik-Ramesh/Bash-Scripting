@@ -21,8 +21,8 @@ if [ $? -eq 0 ] ; then
 fi
 
 echo -n "Starting Nginx"
-systemctl enable nginx
-systemctl enable nginx
+systemctl enable nginx  &>>  /tmp/Frontend.log
+systemctl enable nginx  &>>  /tmp/Frontend.log
 
 if [ $? -eq 0 ] ; then
     echo -e "\e[32m Success \e[0m"
