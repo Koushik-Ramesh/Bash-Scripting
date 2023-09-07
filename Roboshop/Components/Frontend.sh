@@ -10,8 +10,8 @@ if [ $USER_ID -ne 0 ] ; then
     exit 1
 fi
 
-echo "Configuring Frontend "
-echo -n "Installing Frontend: "         # -n will make sure the next output line stays in the same line
+echo "Configuring Frontend"
+echo -n "Installing Frontend:"         # -n will make sure the next output line stays in the same line
 
 yum install nginx -y   &>>  /tmp/Frontend.log
 if [ $? -eq 0 ] ; then
@@ -20,7 +20,7 @@ if [ $? -eq 0 ] ; then
     echo -e "\e[31m Failure \e[0m"
 fi
 
-echo -n "Starting Nginx"
+echo -n "Starting Nginx:"
 systemctl enable nginx  &>>  /tmp/Frontend.log
 systemctl enable nginx  &>>  /tmp/Frontend.log
 
