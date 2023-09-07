@@ -42,7 +42,7 @@ echo -n "Extracting Frontend:"
 unzip /tmp/frontend.zip     &>>  /tmp/Frontend.log
 Status $?
 
-echo -n "Sortind the Frontend files:"
+echo -n "Sorting the Frontend files:"
 mv frontend-main/* .
 mv static/* .
 rm -rf frontend-main README.md
