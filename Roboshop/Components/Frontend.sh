@@ -51,5 +51,5 @@ Status $?
 
 echo -n "Restarting Frontend:"
 systemctl daemon-reload      &>>  /tmp/Frontend.log
-systemctl restart ngins      &>>  /tmp/Frontend.log
+systemctl restart nginx      &>>  /tmp/Frontend.log
 Status $?
