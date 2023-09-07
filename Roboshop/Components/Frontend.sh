@@ -12,4 +12,4 @@ fi
 
 echo "Configuring Frontend"
 
-yum install nginx -y  &>>  /tmp/Frontend.log
+yum install nginx -y   &>  /tmp/Frontend.log
