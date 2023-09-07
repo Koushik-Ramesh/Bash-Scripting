@@ -4,6 +4,8 @@
 # In linux , root user's gid or uid is always 0
 
 USER_ID=$(id -u)
+Component=$1
+Logfile="/tmp/${Component}.log"
 
 if [ $USER_ID -ne 0 ] ; then
     echo -e "\e[32m Script must be executed as root user or sudo prefix \e[0m"
@@ -18,38 +20,38 @@ Status(){
     fi
 
 }
-echo "Configuring Frontend"
-echo -n "Installing Frontend:"         # -n will make sure the next output line stays in the same line
+echo "Configuring ${Component}"
+echo -n "Installing Nginx:"         # -n will make sure the next output line stays in the same line
 
-yum install nginx -y   &>>  /tmp/Frontend.log
+yum install nginx -y   &>>  ${Logfile}
 Status $?
 
 echo -n "Starting Nginx:"
-systemctl enable nginx  &>>  /tmp/Frontend.log
-systemctl enable nginx  &>>  /tmp/Frontend.log
+systemctl enable nginx  &>>  ${Logfile}
+systemctl enable nginx  &>>  ${Logfile}
 Status $?
 
-echo -n "Downloading the Frontend Component:"
-curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"
+echo -n "Downloading the ${Component} Component:"
+curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/${Component}/archive/main.zip"
 Status $?
 
-echo -n "Cleanp Frontend:" 
-cd /usr/share/nginx/html    &>>  /tmp/Frontend.log
-rm -rf *                    &>>  /tmp/Frontend.log
+echo -n "Cleanp ${Component}:" 
+cd /usr/share/nginx/html    
+rm -rf *                    &>>  ${Logfile}
 Status $?
 
-echo -n "Extracting Frontend:"
-unzip /tmp/frontend.zip     &>>  /tmp/Frontend.log
+echo -n "Extracting ${Component}:"
+unzip /tmp/frontend.zip     &>>  ${Logfile}
 Status $?
 
-echo -n "Sorting the Frontend files:"
-mv frontend-main/* .
+echo -n "Sorting the ${Component} files:"
+mv ${Component}-main/* .
 mv static/* .
-rm -rf frontend-main README.md
+rm -rf ${Component}-main README.md
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
 Status $?
 
-echo -n "Restarting Frontend:"
-systemctl daemon-reload      &>>  /tmp/Frontend.log
-systemctl restart nginx      &>>  /tmp/Frontend.log
+echo -n "Restarting ${Component}:"
+systemctl daemon-reload      &>>  ${Logfile}
+systemctl restart nginx      &>>  ${Logfile}
 Status $?
