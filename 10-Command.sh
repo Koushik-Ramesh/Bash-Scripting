@@ -32,3 +32,5 @@ System(){
 
 System
 
+# In Bash Scripting, by default if any one line fails, the interpreter will not stop/exit, it will start executing the other commands
+# In order to avoid this, we can type "set -e" in the beginning of the script to avoid this
