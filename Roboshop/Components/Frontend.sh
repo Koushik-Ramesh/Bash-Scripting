@@ -6,7 +6,7 @@ USER_ID=$(id -u)
 
 if [$USER_ID -ne 0] ; then
     echo -e "\e[32m Script must be executed as root user or sudo prefix \e[0m"
-     exit 1
+    exit 1
 fi
 
 echo "Configuring Frontend"
