@@ -4,7 +4,7 @@
 # In linux , root user's gid or uid is always 0
 
 USER_ID=$(id -u)
-Component=Frontend
+Component=frontend
 Logfile="/tmp/${Component}.log"
 
 if [ $USER_ID -ne 0 ] ; then
