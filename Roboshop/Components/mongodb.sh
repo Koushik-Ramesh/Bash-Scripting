@@ -32,7 +32,7 @@ Status $?
 # using sed -ie 's/127.0.0.1/0.0.0.1/g' mongod.conf
 
 echo -n "Enabling the ${Component} visibility: "
-sed -ie 's/127.0.0.1/0.0.0.1/g' /etc/mongod.conf
+sed -ie 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
 Status $?
 
 echo -n "Starting the ${Component}: "
