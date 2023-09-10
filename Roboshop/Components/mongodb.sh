@@ -50,9 +50,9 @@ unzip -o ${Component}.zip      &>> ${Logfile}
 Status $?
 
 echo -n "Injecting the ${Component} schema: "
-cd ${Component}-main
-mongo < catalogue.js
-mongo < users.js
+cd ${Component}-main     
+mongo < catalogue.js     &>> ${Logfile}
+mongo < users.js         &>> ${Logfile}
 Status $?
 
 echo -e "\e[35m Configuring ${Component} Complete.....! \e[0m"
