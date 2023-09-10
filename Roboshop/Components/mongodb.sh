@@ -46,7 +46,7 @@ Status $?
 
 echo -n "Extracting the ${Component} schema: "
 cd /tmp
-unzip ${Component}.zip      &>> ${Logfile}
+unzip -o ${Component}.zip      &>> ${Logfile}
 Status $?
 
 echo -n "Injecting the ${Component} schema: "
