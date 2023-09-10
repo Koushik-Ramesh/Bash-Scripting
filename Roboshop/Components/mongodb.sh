@@ -39,3 +39,19 @@ echo -n "Starting the ${Component}: "
 systemctl enable mongod      &>> ${Logfile}
 systemctl restart mongod     &>> ${Logfile}
 Status $?
+
+echo -n "Downloading the ${Component} schema: "
+curl -s -L -o /tmp/${Component}.zip "https://github.com/stans-robot-project/${Component}/archive/main.zip"
+Status $?
+
+echo -n "Extracting the ${Component} schema: "
+cd /tmp
+unzip ${Component}.zip      &>> ${Logfile}
+Status $?
+
+echo -n "Injecting the ${Component} schema: "
+cd ${Component}-main
+mongo < catalogue.js
+mongo < users.js
+Status $?
+
