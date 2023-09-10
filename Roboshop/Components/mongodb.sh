@@ -24,6 +24,6 @@ echo -e "Configuring ${Component} repo:"
 curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/stans-robot-project/mongodb/main/mongo.repo
 Status $?
 
-echo -n "Installing ${Component"}: "
-yum install -y mongodb-org  
+echo -n "Installing ${Component}: "
+yum install -y mongodb-org      &>> ${Logfile}
 Status $?
