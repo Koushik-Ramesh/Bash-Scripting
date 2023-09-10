@@ -29,7 +29,9 @@ echo -n "Installing Nodejs: "
 yum install nodejs -y      &>> ${Logfile}
 Status $?
 
-echo -n "Creating Application user account: "
-useradd roboshop
-Status $?
-
+id ${APPUSER}       &>> ${Logfile}
+if [ $? -ne 0 ] ; then
+    echo -n "Creating Application user account: "
+    useradd roboshop
+    Status $?
+fi
