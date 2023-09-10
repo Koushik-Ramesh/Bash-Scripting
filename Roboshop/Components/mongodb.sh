@@ -27,3 +27,16 @@ Status $?
 echo -n "Installing ${Component}: "
 yum install -y mongodb-org      &>> ${Logfile}
 Status $?
+
+# Make sure to change the ip address from 127.0.0.1 to 0.0.0.0 
+# using sed -ie 's/127.0.0.1/0.0.0.1/g' mongodb.conf
+# Copy the cat file from cat /etc/mongod.conf to mongodb.conf by sudo cp /etc/mongod.conf ~/mongodb.conf
+
+echo -n "Enabling the ${Component} visibility: "
+sed -ie 's/127.0.0.1/0.0.0.1/g' /etc/mongodb.conf
+Status $?
+
+echo -n "Starting the ${Component}: "
+systemctl enable mongod      &>> ${Logfile}
+systemctl restart mongod     &>> ${Logfile}
+Status $?
