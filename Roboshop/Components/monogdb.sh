@@ -25,6 +25,3 @@ Status $?
 echo -n "Installing ${Component"}:"
 yum install -y mongodb-org      &>> ${Logfile}
 Status $?
-
-# systemctl enable mongod
-# systemctl start mongod
