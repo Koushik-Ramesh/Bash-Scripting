@@ -41,7 +41,7 @@ rm -rf *                    &>>  ${Logfile}
 Status $?
 
 echo -n "Extracting ${Component}:"
-unzip -o /tmp/frontend.zip     &>>  ${Logfile}
+unzip -o /tmp/${Componet}.zip     &>>  ${Logfile}
 mv ${Component}-main/* .
 mv static/* .
 rm -rf ${Component}-main README.md
@@ -52,3 +52,5 @@ echo -n "Restarting ${Component}:"
 systemctl daemon-reload      &>>  ${Logfile}
 systemctl restart nginx      &>>  ${Logfile}
 Status $?
+
+echo -e "\e[35m Configuring ${Component} Complete.....! \e[0m"

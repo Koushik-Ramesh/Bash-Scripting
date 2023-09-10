@@ -55,3 +55,4 @@ mongo < catalogue.js
 mongo < users.js
 Status $?
 
+echo -e "\e[35m Configuring ${Component} Complete.....! \e[0m"
