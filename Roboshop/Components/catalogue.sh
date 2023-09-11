@@ -35,3 +35,7 @@ if [ $? -ne 0 ] ; then
     useradd roboshop
     Status $?
 fi
+
+echo -n "Downloading the ${Component}: "
+curl -s -L -o /tmp/${Component}.zip "https://github.com/stans-robot-project/${Component}/archive/main.zip"
+Status $?
