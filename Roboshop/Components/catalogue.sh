@@ -50,3 +50,10 @@ echo -n "Changing the ownership: "
 mv ${Component}-main ${Component}
 chown -R ${APPUSER}:${APPUSER} /home/${APPUSER}/${Component}/
 Status $?
+
+echo -n "Generating the ${Component} artifacts: "
+cd /home/${APPUSER}/${Component}
+npm install  &>> ${Logfile}
+Status $?
+
+
