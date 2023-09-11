@@ -56,4 +56,15 @@ cd /home/${APPUSER}/${Component}
 npm install  &>> ${Logfile}
 Status $?
 
+echo -n "Updating the ${Component} system file: "
+sed -ie 's/MONGO_DNSNAME/mongodb.robosop.internal/' /home/${APPUSER}/${Component}/systemd.service
+mv /home/${APPUSER}/${Component}/systemd.service /etc/systemd/system/${Component}.service
+Status $?
 
+echo -n "Starting the ${Component} service: "
+systemctl daemon-reload    &>> ${Logfile}
+systemctl enable ${Component}       &>> ${Logfile}
+systemctl restart ${Component}      &>> ${Logfile}
+Status $?
+
+echo -e "\e[35m Configuring ${Component} Complete.....! \e[0m"
