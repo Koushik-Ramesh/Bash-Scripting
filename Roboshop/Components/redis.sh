@@ -33,6 +33,7 @@ Status $?
 
 echo -n "Enabling the ${Component} visibility: "
 sed -ie 's/127.0.0.1/0.0.0.0/g' /etc/${Component}.conf
+sed -ie 's/127.0.0.1/0.0.0.0/g' /etc/${Component}/${Component}.conf
 Status $?
 
 echo -n "Starting the ${Component}: "
