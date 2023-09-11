@@ -20,7 +20,7 @@ Status(){
 
 echo "Configuring ${Component}"
 
-echo -e "Configuring ${Component} repo:"    
+echo -n "Configuring ${Component} repo:"    
 curl -L https://raw.githubusercontent.com/stans-robot-project/${Component}/main/${Component}.repo -o /etc/yum.repos.d/${Component}.repo    &>> ${Logfile} 
 Status $?
 
