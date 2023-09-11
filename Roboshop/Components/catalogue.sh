@@ -39,3 +39,9 @@ fi
 echo -n "Downloading the ${Component}: "
 curl -s -L -o /tmp/${Component}.zip "https://github.com/stans-robot-project/${Component}/archive/main.zip"
 Status $?
+
+echo -n "Copying the ${Component} to ${APPUSER} home directory"
+cd /home/${APPUSER}/
+rm -rf ${Component}     &>> ${Logfile}
+unzip -o /tmp/${Component}.zip      &>> ${Logfile}
+Status $?
