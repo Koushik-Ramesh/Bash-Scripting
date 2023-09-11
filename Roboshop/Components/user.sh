@@ -58,7 +58,7 @@ Status $?
 
 echo -n "Updating the ${Component} system file: "
 sed -ie 's/REDIS_ENDPOINT/redis.robosop.internal/' /home/${APPUSER}/${Component}/systemd.service
-sed -ie 's/MONGOD_ENDPOINT/redis.robosop.internal/' /home/${APPUSER}/${Component}/systemd.service
+sed -ie 's/MONGOD_ENDPOINT/mongodb.robosop.internal/' /home/${APPUSER}/${Component}/systemd.service
 mv /home/${APPUSER}/${Component}/systemd.service /etc/systemd/system/${Component}.service
 Status $?
 
