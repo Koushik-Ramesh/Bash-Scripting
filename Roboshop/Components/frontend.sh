@@ -51,6 +51,7 @@ Status $?
 echo -n "Updating the backend components in the reverse proxy files: "
 for Component in catalogue user cart ;do
     sed -i -e "/${Component}/s/localhost/${Component}.robosop.internal/"  /etc/nginx/default.d/roboshop.conf
+done
 
 echo -n "Restarting ${Component}:"
 systemctl daemon-reload      &>>  ${Logfile}
