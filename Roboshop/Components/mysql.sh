@@ -18,11 +18,11 @@ Status(){
 
 }
 
-echo -e "Configuring the ${Component} repo: "
+echo -e -n "Configuring the ${Component} repo: "
 curl -s -L -o /etc/yum.repos.d/${Component}.repo https://raw.githubusercontent.com/stans-robot-project/${Component}/main/${Component}.repo
 Status $?
 
-echo -e "Installing ${Component}: "
+echo -e -n "Installing ${Component}: "
 yum install mysql-community-server -y       &>> ${Logfile}
 Status $?
 
