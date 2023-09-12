@@ -45,7 +45,10 @@ if [ $? -ne 0 ]; then
     Status $?
 fi
 
-echo -n "Uninstalling plugin for password uninstallation: "
-echo "uninstall plugin validate_password" | mysql -uroot -pRoboShop@1       &>> ${Logfile}
-Status $?
+echo "show plugins;" |  mysql -uroot -pRoboShop@1 | grep validate_password  &>> ${Logfile}
+if [ $? -eq 0 ]; then
+    echo -n "Uninstalling plugin for password uninstallation: "
+    echo "uninstall plugin validate_password" | mysql -uroot -pRoboShop@1       &>> ${Logfile}
+    Status $?
+fi
 
