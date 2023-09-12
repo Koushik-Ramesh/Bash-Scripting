@@ -64,10 +64,6 @@ DOWNLOAD_AND_EXTRACT() {
         curl -s -L -o /tmp/${Component}.zip "https://github.com/stans-robot-project/${Component}/archive/main.zip"
         Status $?
 
-        echo -n "Downloading the ${Component}: "
-        curl -s -L -o /tmp/${Component}.zip "https://github.com/stans-robot-project/${Component}/archive/main.zip"
-        Status $?
-
         echo -n "Copying the ${Component} to ${APPUSER} home directory: "
         cd /home/${APPUSER}/
         rm -rf ${Component}     &>> ${Logfile}
@@ -139,4 +135,12 @@ PYTHON() {
     cd /home/${APPUSER}/${Component}/
     pip3 install -r requirements.txt    &>> {Logfile}  
     Status $?
+
+    USERID=$(id -u roboshop)
+    GROUPID=$(id -g roboshop)
+
+    echo -n "Updating the UID and GID in the ${Component}.ini file: "
+    sed -i -e "/^uid=${USERID}" -e "/^gid/ c gid=${GROUPID}" /home/${APPUSER}/${Component}/${Component}.ini
+
+    CONFIG_SERVICE
 }
