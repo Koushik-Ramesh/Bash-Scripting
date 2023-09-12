@@ -1,6 +1,6 @@
 #!/bin/bash
 
-Component=catalogue
+Component=payment
 
 source Components/common.sh         # Calling the script from another script to run it
 PYTHON             # Calling the declared python function 
