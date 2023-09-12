@@ -86,6 +86,9 @@ CONFIG_SERVICE(){
         sed -ie 's/CATALOGUE_ENDPOINT/catalogue.robosop.internal/' /home/${APPUSER}/${Component}/systemd.service
         sed -ie 's/CARTENDPOINT/cart.robosop.internal/' /home/${APPUSER}/${Component}/systemd.service
         sed -ie 's/DBHOST/mysql.robosop.internal/' /home/${APPUSER}/${Component}/systemd.service
+        sed -ie 's/CARTHOST/cart.robosop.internal/' /home/${APPUSER}/${Component}/systemd.service
+        sed -ie 's/USERHOST/user.robosop.internal/' /home/${APPUSER}/${Component}/systemd.service
+        sed -ie 's/AMQPHOST/rabbitmq.robosop.internal/' /home/${APPUSER}/${Component}/systemd.service
         mv /home/${APPUSER}/${Component}/systemd.service /etc/systemd/system/${Component}.service
         Status $?
 
