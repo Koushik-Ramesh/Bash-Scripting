@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 Component=rabbitmq
 
 source Components/common.sh         # Calling the script from another script to run it
