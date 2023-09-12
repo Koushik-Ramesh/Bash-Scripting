@@ -20,9 +20,12 @@ systemctl enable rabbitmq-server
 systemctl start rabbitmq-server
 Status $?
 
-echo -n "Creating ${Component} user account: "
-rabbitmqctl add_user roboshop roboshop123   &>> ${Logfile}
-Status $?
+sudo rabbitmqctl list_users | grep roboshop     &>> ${Logfile}
+if [ $? -ne 0 ]; then
+    echo -n "Creating ${Component} user account: "
+    rabbitmqctl add_user roboshop roboshop123   &>> ${Logfile}
+    Status $?
+fi
 
 echo -n "Configuring the permissions: "
 rabbitmqctl set_user_tags roboshop administrator
