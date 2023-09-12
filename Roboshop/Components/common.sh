@@ -1,6 +1,5 @@
 # All the common functions will be declared here, rest of them will be sourcing from the file
 
-Component=catalogue
 Logfile="/tmp/${Component}.log"
 APPUSER="roboshop"
 
