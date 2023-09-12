@@ -34,7 +34,7 @@ NodeJS(){
 
         CREATE_USER         #Calling the function after installing the nodejs to create user account
 
-        EXTRACT   # extracting the files
+        DOWNLOAD_AND_EXTRACT   # extracting the files
 
         echo -n "Generating the ${Component} artifacts: "
         cd /home/${APPUSER}/${Component}
@@ -56,15 +56,11 @@ CREATE_USER(){
 }
 
 # Downloading and Extracting
-DOWNLOAD() {
-     echo -n "Downloading the ${Component}: "
-    curl -s -L -o /tmp/${Component}.zip "https://github.com/stans-robot-project/${Component}/archive/main.zip"
-    Status $?
-}
+DOWNLOAD_AND_EXTRACT() {
 
-EXTRACT() {
-
-        DOWNLOAD    # Downloads the Component
+        echo -n "Downloading the ${Component}: "
+        curl -s -L -o /tmp/${Component}.zip "https://github.com/stans-robot-project/${Component}/archive/main.zip"
+        Status $?
 
         echo -n "Downloading the ${Component}: "
         curl -s -L -o /tmp/${Component}.zip "https://github.com/stans-robot-project/${Component}/archive/main.zip"

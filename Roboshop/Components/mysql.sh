@@ -52,14 +52,17 @@ if [ $? -eq 0 ]; then
     Status $?
 fi
 
-DOWNLOAD    # Downloads and extracts mysql Schema
+echo -n "Downloading the ${Component} schema: "
+curl -s -L -o /tmp/${Component}.zip "https://github.com/stans-robot-project/${Component}/archive/main.zip"
+Status $?
 
-echo -n "Extracting the schema: "
+echo -n "Extracting the ${Component} schema: "
+cd /tmp
 unzip -o /tmp/${Component}.zip
 Status $?
 
 echo -n "Injecting the schema: "
-cd /tmp/${Component}-main
+cd ${Component}-main
 mysql -u root -pRoboShop@1 <shipping.sql    &>> ${Logfile}
 Status $?
 
