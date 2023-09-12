@@ -138,4 +138,5 @@ PYTHON() {
     echo -n "Generating the artifacts: "  
     cd /home/${APPUSER}/${Component}/
     pip3 install -r requirements.txt    &>> {Logfile}  
+    Status $?
 }
