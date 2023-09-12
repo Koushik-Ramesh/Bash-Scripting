@@ -26,3 +26,8 @@ echo -e -n "Installing ${Component}: "
 yum install mysql-community-server -y       &>> ${Logfile}
 Status $?
 
+echo -n "Starting ${Component}:"
+systemctl enable ${Component}  &>>  ${Logfile}
+systemctl enable ${Component} &>>  ${Logfile}
+Status $?
+
