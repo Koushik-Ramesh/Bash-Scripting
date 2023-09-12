@@ -79,6 +79,8 @@ CONFIG_SERVICE(){
         sed -ie 's/MONGO_DNSNAME/mongodb.robosop.internal/' /home/${APPUSER}/${Component}/systemd.service
         sed -ie 's/REDIS_ENDPOINT/redis.robosop.internal/' /home/${APPUSER}/${Component}/systemd.service
         sed -ie 's/MONGO_ENDPOINT/mongodb.robosop.internal/' /home/${APPUSER}/${Component}/systemd.service
+        sed -ie 's/REDIS_ENDPOINT/redis.robosop.internal/' /home/${APPUSER}/${Component}/systemd.service
+        sed -ie 's/CATALOGUE_ENDPOINT/catalogue.robosop.internal/' /home/${APPUSER}/${Component}/systemd.service
         mv /home/${APPUSER}/${Component}/systemd.service /etc/systemd/system/${Component}.service
         Status $?
 
