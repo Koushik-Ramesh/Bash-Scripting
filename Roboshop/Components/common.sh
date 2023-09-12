@@ -34,7 +34,7 @@ NodeJS(){
 
         CREATE_USER         #Calling the function after installing the nodejs to create user account
 
-        DOWNLOAD    #Downloading and extracting the files
+        EXTRACT   # extracting the files
 
         echo -n "Generating the ${Component} artifacts: "
         cd /home/${APPUSER}/${Component}

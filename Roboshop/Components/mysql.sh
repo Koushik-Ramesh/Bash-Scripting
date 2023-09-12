@@ -54,8 +54,12 @@ fi
 
 DOWNLOAD    # Downloads and extracts mysql Schema
 
+echo -n "Extracting the schema: "
+unzip -o /tmp/${Component}.zip
+Status $?
+
 echo -n "Injecting the schema: "
-cd ${Component}-main
+cd /tmp/${Component}-main
 mysql -u root -pRoboShop@1 <shipping.sql    &>> ${Logfile}
 Status $?
 
