@@ -52,3 +52,11 @@ if [ $? -eq 0 ]; then
     Status $?
 fi
 
+DOWNLOAD    # Downloads and extracts mysql Schema
+
+echo -n "Injecting the schema: "
+cd ${Component}-main
+mysql -u root -pRoboShop@1 <shipping.sql    &>> ${Logfile}
+Status $?
+
+echo -e "\e[35m Configuring ${Component} Complete.....! \e[0m"
