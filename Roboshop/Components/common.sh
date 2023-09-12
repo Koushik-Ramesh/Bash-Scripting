@@ -41,6 +41,8 @@ NodeJS(){
         npm install  &>> ${Logfile}
         Status $?
 
+        CONFIG_SERVICE
+
 }
 
 # Creating user account
@@ -86,6 +88,8 @@ CONFIG_SERVICE(){
         sed -ie 's/MONGO_ENDPOINT/mongodb.robosop.internal/' /home/${APPUSER}/${Component}/systemd.service
         sed -ie 's/REDIS_ENDPOINT/redis.robosop.internal/' /home/${APPUSER}/${Component}/systemd.service
         sed -ie 's/CATALOGUE_ENDPOINT/catalogue.robosop.internal/' /home/${APPUSER}/${Component}/systemd.service
+        sed -ie 's/CARTENDPOINT/cart.robosop.internal/' /home/${APPUSER}/${Component}/systemd.service
+        sed -ie 's/DBHOST/mysql.robosop.internal/' /home/${APPUSER}/${Component}/systemd.service
         mv /home/${APPUSER}/${Component}/systemd.service /etc/systemd/system/${Component}.service
         Status $?
 
@@ -96,6 +100,28 @@ CONFIG_SERVICE(){
         Status $?
 }
 
+MVN_PACKAGE() {
+    echo -n "Generating the ${Component} artifacts: "
+    cd /home/${APPUSER}/${Component}/
+    mvn clean package   &>> {Logfile}
+    mv target/${Component}-1.0.jar ${Component}.jar
+    Status $?
+}
 
+JAVA() {
+    echo -e "Configuring ${Component}"
+
+    echo -n "Installing maven: "
+    yum install maven -y    &>> ${Logfile}
+    Status $?
+
+    CREATE_USER         #Calling the function after installing the nodejs to create user account
+
+    DOWNLOAD_AND_EXTRACT   # Downloading & extracting the files
+
+    MVN_PACKAGE
+
+    CONFIG_SERVICE
+}
 
 
