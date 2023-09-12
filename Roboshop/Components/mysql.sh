@@ -35,7 +35,13 @@ echo -n "Extracting the default mysql root password: "
 DEFAULT_ROOT_PASSWORD=$(grep "temporary password"  /var/log/mysqld.log |awk -F " " '{print $NF}')
 Status $?
 
-echo -n "Resetting the default password of root account: "
-echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1'" | mysql --connect-expired-password -uroot -p$DEFAULT_ROOT_PASSWORD   &>>  ${Logfile}
-Status $?
+
+# This should happen only once and for the first time, when it runs for second time it fails
+# We need to ensure that this runs only once
+echo "Show databases;" | mysql -uroot -pRoboShop@1      &>> ${Logfile}
+if [ $? -ne 0 ]; then
+    echo -n "Resetting the default password of root account: "
+    echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1'" | mysql --connect-expired-password -uroot -p$DEFAULT_ROOT_PASSWORD   &>>  ${Logfile}
+    Status $?
+fi
 
