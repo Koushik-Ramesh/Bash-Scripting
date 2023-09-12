@@ -124,4 +124,16 @@ JAVA() {
     CONFIG_SERVICE
 }
 
+PYTHON() {
+    echo -e "Configuring ${Component}"
 
+    echo -n "Installing Python: "
+    yum install python36 gcc python3-devel -y    &>> ${Logfile}
+    Status $?
+
+    CREATE_USER
+
+    DOWNLOAD_AND_EXTRACT  
+
+    pip3 install -r requirements.txt    &>> {Logfile}  
+}
