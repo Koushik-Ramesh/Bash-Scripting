@@ -140,8 +140,8 @@ PYTHON() {
     GROUPID=$(id -g roboshop)
 
     echo -n "Updating the UID and GID in the ${Component}.ini file: "
-    sed -i -e "/^uid=${USERID}" -e "/^gid/ c gid=${GROUPID}" /home/${APPUSER}/${Component}/${Component}.ini
+    sed -i -e "/^uid/ c uid=${USERID}" -e "/^gid/ c gid=${GROUPID}" /home/${APPUSER}/${Component}/${Component}.ini
     Status $? 
-    
+
     CONFIG_SERVICE
 }
