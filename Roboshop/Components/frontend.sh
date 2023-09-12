@@ -41,7 +41,7 @@ rm -rf *                    &>>  ${Logfile}
 Status $?
 
 echo -n "Extracting ${Component}:"
-unzip -o /tmp/${Componet}.zip     &>>  ${Logfile}
+unzip -o /tmp/${Component}.zip     &>>  ${Logfile}
 mv ${Component}-main/* .
 mv static/* .
 rm -rf ${Component}-main README.md
