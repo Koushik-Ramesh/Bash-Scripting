@@ -11,7 +11,7 @@ COMMENT
 
 Component=$1
 if [ -z $1 ] ; then
-    echo -e "\e[31m Component name is required \e[0m \n\n\t"
+    echo -e "\e[31m Component name is required \e[0m \n\t\t"
     echo -e "\e[36m Ex usage $ bash launch-ec2 \e[0m"
     exit 1
 fi
