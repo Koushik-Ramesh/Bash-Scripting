@@ -9,6 +9,7 @@ To create a server, information needed are:
 5: DNS RECORD: HOSTED ZONE ID
 COMMENT
 
+Component=$1
 AMI_ID="ami-0c1d144c8fdd8d690"
 INSTANCE_TYPE="t2.micro"-
 SG_ID="sg-0ca0742615a57b999"     #Security group id - koushik allow all
