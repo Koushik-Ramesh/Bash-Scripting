@@ -23,4 +23,4 @@ PRIVATEIP=$(aws ec2 run-instances --image-id ${AMI_ID} --instance-type ${INSTANC
 # Each and every resource created will have tag in it 
 # Any information presented in [] is called list
 
-echo "Private IP address of the ${Component} : $PRIVATEIP
+echo "Private IP address of the ${Component} is $PRIVATEIP"
