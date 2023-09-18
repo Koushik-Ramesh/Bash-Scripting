@@ -36,7 +36,7 @@ create_ec2() {
 
     sed -e "s/Component/${Component}-${ENV}/"  -e "s/IPADDRESS/${PRIVATEIP}/" route53.json > /tmp/r53.json
     aws route53 change-resource-record-sets --hosted-zone-id $HOSTEDZONEID --change-batch file:///tmp/r53.json
-    echo -e "Private IP address of the ${Component} is created and ready to use on ${Component}.robosop.internal"
+    echo -e "\e[33m ********Creating DNS Record for the $Component has been completed ******\e[0m"
 }
 
 if [ "$1" == "all" ]; then
