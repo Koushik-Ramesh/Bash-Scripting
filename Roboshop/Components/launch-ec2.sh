@@ -20,7 +20,7 @@ if [ -z $1 ] ; then
 fi
 
 # AMI_ID="ami-0c1d144c8fdd8d690"
-create
+
 AMI_ID="$(aws ec2 describe-images --filters "Name=name, Values=DevOps-LabImage-CentOS7" | jq ".Images[].ImageId" | sed -e 's/"//g')"
 
 # SG_ID="sg-0ca0742615a57b999"     #Security group id - koushik allow all
@@ -38,7 +38,7 @@ create_ec2() {
     echo -e "Private IP address of the ${Component} is created and ready to use on ${Component}.robosop.internal"
 }
 
-if [ "$1 == "all" ]; then
+if [ "$1" == "all" ]; then
 
     for component in mongodb catalogue cart user shipping frontend payment msql reddis rabbitmq; do
         Component=$component
