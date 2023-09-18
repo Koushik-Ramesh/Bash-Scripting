@@ -10,10 +10,11 @@ To create a server, information needed are:
 COMMENT
 
 Component=$1
+ENV=$2
 HOSTEDZONEID="Z07818693FQRAM16MSR86"
 INSTANCE_TYPE="t2.micro"
 
-if [ -z $1 ] ; then
+if [ -z $1 ] || [ -z $2 ] ; then
     echo -e "\e[31m Component name is required \e[0m \n\t\t"
     echo -e "\e[36m Ex usage $ bash Components/launch-ec2 \e[0m"
     exit 1
@@ -28,12 +29,12 @@ SG_ID="$(aws ec2 describe-security-groups --filters Name=group-name,Values=Koush
 
 create_ec2() {
     echo -e "*************Creating \e[34m ${Component}\e[0m Server is in Progress*********** "
-    PRIVATEIP=$(aws ec2 run-instances --image-id ${AMI_ID} --instance-type ${INSTANCE_TYPE} --security-group-ids ${SG_ID} --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${Component}}]" | jq '.Instances[].PrivateIpAddress' | sed -e 's/"//g')
+    PRIVATEIP=$(aws ec2 run-instances --image-id ${AMI_ID} --instance-type ${INSTANCE_TYPE} --security-group-ids ${SG_ID} --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${Component}-${ENV}}]" | jq '.Instances[].PrivateIpAddress' | sed -e 's/"//g')
 
-    echo -e "Private IP address of the ${Component} is $PRIVATEIP \n"
+    echo -e "Private IP address of the ${Component-${ENV}} is $PRIVATEIP \n"
     echo -e "Creating DNS Record of ${Component} :"
 
-    sed -e "s/Component/${Component}/"  -e "s/IPADDRESS/${PRIVATEIP}/" route53.json > /tmp/r53.json
+    sed -e "s/Component/${Component}-${ENV}/"  -e "s/IPADDRESS/${PRIVATEIP}/" route53.json > /tmp/r53.json
     aws route53 change-resource-record-sets --hosted-zone-id $HOSTEDZONEID --change-batch file:///tmp/r53.json
     echo -e "Private IP address of the ${Component} is created and ready to use on ${Component}.robosop.internal"
 }
