@@ -10,3 +10,8 @@ This Repository contains all the basics needed to learn Bash-Scripting and the m
 ``` 
 ### How to open folder in VSCode
     $ code foldername
+
+#CM - Configuration Management Tools:
+    Ansible (Redhat, IBM):YAML
+    Puppet
+    salt
